@@ -312,6 +312,7 @@ namespace mystl
 		void      init_space(size_type size, size_type cap);
 
 		void      fill_init(size_type n, const value_type& value);
+
 		template <class Iter>
 		void      range_init(Iter first, Iter last);
 
@@ -644,8 +645,8 @@ namespace mystl
 	// get_new_cap º¯Êý
 	template <class T>
 	typename vector<T>::size_type
-		vector<T>::
-		get_new_cap(size_type add_size)
+	vector<T>::
+	get_new_cap(size_type add_size)
 	{
 		const auto old_size = capacity();
 		THROW_LENGTH_ERROR_IF(old_size > max_size() - add_size,
@@ -656,8 +657,8 @@ namespace mystl
 				? old_size + add_size : old_size + add_size + 16;
 		}
 		const size_type new_size = old_size == 0
-			? mystl::max(add_size, static_cast<size_type>(16))
-			: mystl::max(old_size + old_size / 2, old_size + add_size);
+		? mystl::max(add_size, static_cast<size_type>(16))
+		: mystl::max(old_size + old_size / 2, old_size + add_size);
 		return new_size;
 	}
 
