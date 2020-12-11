@@ -187,7 +187,7 @@ namespace mystl
 
 		explicit list(size_type n)
 		{
-			fill_init(n, value_type());
+			fill_init(n, value_type()); 
 		}
 
 		list(size_type n, const T& value)
@@ -357,8 +357,8 @@ namespace mystl
 		}
 
 		template <class Iter, typename std::enable_if<
-			mystl::is_input_iterator<Iter>::value, int>::type = 0>
-			void     assign(Iter first, Iter last)
+		mystl::is_input_iterator<Iter>::value, int>::type = 0>
+		void     assign(Iter first, Iter last)
 		{
 			copy_assign(first, last);
 		}
