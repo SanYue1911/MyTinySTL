@@ -144,6 +144,61 @@ namespace mystl
 		bool operator!=(const self& rhs) const { return node_ != rhs.node_; }
 	};
 
+	template <class T>
+	struct list_const_iterator : public iterator<bidirectional_iterator_tag, T>
+	{
+		typedef T                                 value_type;
+		typedef const T* pointer;
+		typedef const T& reference;
+		typedef typename node_traits<T>::base_ptr base_ptr;
+		typedef typename node_traits<T>::node_ptr node_ptr;
+		typedef list_const_iterator<T>            self;
+
+		base_ptr node_;
+
+		list_const_iterator() = default;
+		list_const_iterator(base_ptr x)
+			:node_(x) {}
+		list_const_iterator(node_ptr x)
+			:node_(x->as_base()) {}
+		list_const_iterator(const list_iterator<T>& rhs)
+			:node_(rhs.node_) {}
+		list_const_iterator(const list_const_iterator& rhs)
+			:node_(rhs.node_) {}
+
+		reference operator*()  const { return node_->as_node()->value; }
+		pointer   operator->() const { return &(operator*()); }
+
+		self& operator++()
+		{
+			MYSTL_DEBUG(node_ != nullptr);
+			node_ = node_->next;
+			return *this;
+		}
+		self operator++(int)
+		{
+			self tmp = *this;
+			++* this;
+			return tmp;
+		}
+		self& operator--()
+		{
+			MYSTL_DEBUG(node_ != nullptr);
+			node_ = node_->prev;
+			return *this;
+		}
+		self operator--(int)
+		{
+			self tmp = *this;
+			--* this;
+			return tmp;
+		}
+
+		// 重载比较操作符
+		bool operator==(const self& rhs) const { return node_ == rhs.node_; }
+		bool operator!=(const self& rhs) const { return node_ != rhs.node_; }
+	};
+
 	// 模板类: list
 // 模板参数 T 代表数据类型
 	template <class T>
@@ -444,6 +499,8 @@ namespace mystl
 		void push_front(value_type&& value)
 		{
 			emplace_front(mystl::move(value));
+
+
 		}
 
 		void push_back(const value_type& value)
