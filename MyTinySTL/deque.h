@@ -260,8 +260,8 @@ namespace mystl
         }
 
         template <class IIter, typename std::enable_if<
-            mystl::is_input_iterator<IIter>::value, int>::type = 0>
-            deque(IIter first, IIter last)
+        mystl::is_input_iterator<IIter>::value, int>::type = 0>
+        deque(IIter first, IIter last)
         {
             copy_init(first, last, iterator_category(first));
         }
@@ -521,8 +521,7 @@ namespace mystl
     };
 
     /*****************************************************************************************/
-
-// 复制赋值运算符
+    // 复制赋值运算符
     template <class T>
     deque<T>& deque<T>::operator=(const deque& rhs)
     {
@@ -995,7 +994,7 @@ namespace mystl
     template <class T>
     template <class IIter>
     void deque<T>::
-        copy_init(IIter first, IIter last, input_iterator_tag)
+    copy_init(IIter first, IIter last, input_iterator_tag)
     {
         const size_type n = mystl::distance(first, last);
         map_init(n);
