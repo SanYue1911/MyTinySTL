@@ -428,7 +428,7 @@ namespace mystl
             void     assign(IIter first, IIter last)
         {
             copy_assign(first, last, iterator_category(first));
-        }
+        } 
 
         void     assign(std::initializer_list<value_type> ilist)
         {
