@@ -519,7 +519,7 @@ namespace mystl
         void        reallocate_map_at_back(size_type need);
 
     };
-
+     
     /*****************************************************************************************/
     // ¸´ÖÆ¸³ÖµÔËËã·û
     template <class T>
