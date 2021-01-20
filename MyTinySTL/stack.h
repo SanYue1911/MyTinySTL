@@ -23,7 +23,7 @@ namespace mystl
         typedef typename Container::const_reference const_reference;
 
         static_assert(std::is_same<T, value_type>::value,
-            "the value_type of Container should be same with T");
+        "the value_type of Container should be same with T");
     private:
         container_type c_;  // ÓÃµ×²ãÈÝÆ÷±íÏÖ stack
 
@@ -55,6 +55,8 @@ namespace mystl
             :c_(c)
         {
         }
+ 
+        
         stack(Container&& c) noexcept(std::is_nothrow_move_constructible<Container>::value)
             :c_(mystl::move(c))
         {
@@ -177,6 +179,7 @@ namespace mystl
     {
         lhs.swap(rhs);
     }
+
 
 } // namespace mystl
 #endif // !MYTINYSTL_STACK_H_
