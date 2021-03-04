@@ -296,6 +296,7 @@ namespace mystl
         }
     };
 
+
     template <class T>
     struct rb_tree_const_iterator :public rb_tree_iterator_base<T>
     {
@@ -472,7 +473,6 @@ namespace mystl
         x->parent = y;
     }
 
-
     // 插入节点后使 rb tree 重新平衡，参数一为新增节点，参数二为根节点
     //
     // case 1: 新增节点位于根节点，令新增节点为黑
@@ -490,7 +490,7 @@ namespace mystl
     void rb_tree_insert_rebalance(NodePtr x, NodePtr& root) noexcept
     {
         rb_tree_set_red(x);  // 新增节点为红色
-        while (x != root && rb_tree_is_red(x->parent))
+        while (x != root && rb_tree_is_red(x->parent)) 
         {
             if (rb_tree_is_lchild(x->parent))
             { // 如果父节点是左子节点
