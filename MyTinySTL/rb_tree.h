@@ -397,7 +397,7 @@ namespace mystl
         if (node->right != nullptr)
             return rb_tree_min(node->right);
         while (!rb_tree_is_lchild(node))
-            node = node->parent;
+            node = node->parent;  
         return node->parent;
     }
 
@@ -482,7 +482,7 @@ namespace mystl
     // case 4: 父节点为红，叔叔节点为 NIL 或黑色，父节点为左（右）孩子，当前节点为右（左）孩子，
     //         让父节点成为当前节点，再以当前节点为支点左（右）旋
     // case 5: 父节点为红，叔叔节点为 NIL 或黑色，父节点为左（右）孩子，当前节点为左（右）孩子，
-    //         让父节点变为黑色，祖父节点变为红色，以祖父节点为支点右（左）旋
+    //         让父节点变为黑色，祖父节点变为红色，以祖父节点为支点右（左）旋 
     //
     // 参考博客: http://blog.csdn.net/v_JULY_v/article/details/6105630
     //          http://blog.csdn.net/v_JULY_v/article/details/6109153
