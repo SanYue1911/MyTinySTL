@@ -547,6 +547,10 @@ namespace mystl
 
     // 删除节点后使 rb tree 重新平衡，参数一为要删除的节点，参数二为根节点，参数三为最小节点，参数四为最大节点
     // 
+    // 
+    // 
+    // 
+    // 
     // 参考博客: http://blog.csdn.net/v_JULY_v/article/details/6105630
     //          http://blog.csdn.net/v_JULY_v/article/details/6109153
     template <class NodePtr>
@@ -571,7 +575,7 @@ namespace mystl
             { // x 替换 y 的位置
                 xp = y->parent;
                 if (x != nullptr)
-                    x->parent = y->parent;
+                    x->parent = xp;
 
                 y->parent->left = x;
                 y->right = z->right;
@@ -614,6 +618,7 @@ namespace mystl
             if (rightmost == z)
                 rightmost = x == nullptr ? xp : rb_tree_max(x);
         }
+
 
         // 此时，y 指向要删除的节点，x 为替代节点，从 x 节点开始调整。
         // 如果删除的节点为红色，树的性质没有被破坏，否则按照以下情况调整（x 为左子节点为例）：
