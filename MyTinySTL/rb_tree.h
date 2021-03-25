@@ -777,7 +777,7 @@ namespace mystl
 
         ~rb_tree() { clear(); }
 
-    public:
+    public: 
         // 迭代器相关操作
 
         iterator               begin()         noexcept
