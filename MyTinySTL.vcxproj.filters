@@ -33,9 +33,42 @@
     <ClInclude Include="vector.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="heap_algo.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="exceptdef.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="functional.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="memory.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="rb_tree.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="set.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="stack.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="list.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="uninitialized.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="set_algo.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="algobase.h">
+      <Filter>头文件</Filter>
+    </ClCompile>
+    <ClCompile Include="hashtable.h">
       <Filter>头文件</Filter>
     </ClCompile>
   </ItemGroup>
