@@ -145,6 +145,7 @@
     <ClInclude Include="functional.h" />
     <ClInclude Include="heap_algo.h" />
     <ClInclude Include="list.h" />
+    <ClInclude Include="map.h" />
     <ClInclude Include="memory.h" />
     <ClInclude Include="rb_tree.h" />
     <ClInclude Include="set.h" />
