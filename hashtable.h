@@ -126,8 +126,8 @@ namespace mystl
         typedef ht_iterator_base<T, Hash, KeyEqual>         base;
         typedef mystl::ht_iterator<T, Hash, KeyEqual>       iterator;
         typedef mystl::ht_const_iterator<T, Hash, KeyEqual> const_iterator;
-        typedef hashtable_node<T>* node_ptr;
-        typedef hashtable* contain_ptr;
+        typedef hashtable_node<T>*                          node_ptr;
+        typedef hashtable*                                  contain_ptr;
         typedef const node_ptr                              const_node_ptr;
         typedef const contain_ptr                           const_contain_ptr;
 
@@ -306,11 +306,11 @@ namespace mystl
     struct ht_local_iterator :public mystl::iterator<mystl::forward_iterator_tag, T>
     {
         typedef T                          value_type;
-        typedef value_type* pointer;
-        typedef value_type& reference;
+        typedef value_type*                pointer;
+        typedef value_type&                reference;
         typedef size_t                     size_type;
         typedef ptrdiff_t                  difference_type;
-        typedef hashtable_node<T>* node_ptr;
+        typedef hashtable_node<T>*         node_ptr;
 
         typedef ht_local_iterator<T>       self;
         typedef ht_local_iterator<T>       local_iterator;
@@ -355,11 +355,11 @@ namespace mystl
     struct ht_const_local_iterator :public mystl::iterator<mystl::forward_iterator_tag, T>
     {
         typedef T                          value_type;
-        typedef const value_type* pointer;
-        typedef const value_type& reference;
+        typedef const value_type*          pointer;
+        typedef const value_type&          reference;
         typedef size_t                     size_type;
         typedef ptrdiff_t                  difference_type;
-        typedef const hashtable_node<T>* node_ptr;
+        typedef const hashtable_node<T>*   node_ptr;
 
         typedef ht_const_local_iterator<T> self;
         typedef ht_local_iterator<T>       local_iterator;
@@ -467,6 +467,7 @@ namespace mystl
         const size_t* pos = mystl::lower_bound(first, last, n);
         return pos == last ? *(last - 1) : *pos;
     }
+
 
     // 模板类 hashtable
     // 参数一代表数据类型，参数二代表哈希函数，参数三代表键值相等的比较函数
