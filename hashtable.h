@@ -468,7 +468,6 @@ namespace mystl
         return pos == last ? *(last - 1) : *pos;
     }
 
-
     // 模板类 hashtable
     // 参数一代表数据类型，参数二代表哈希函数，参数三代表键值相等的比较函数
     template <class T, class Hash, class KeyEqual>
