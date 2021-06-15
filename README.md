@@ -27,25 +27,25 @@ STL提供六大组件，彼此可以组合套用：
 负责空间配置与管理。从实现的角度来看，配置器是一个实现了动态空间配置、空间管理、空间释放的class template。
 
 2、空间配置器
-	construct.h 
+	construct.h ：
 对应对象的构造和析构。
-	allocater.h 
+	allocater.h ：
 对应内存空间的分配和释放。（只做了简单的封装）
-	uninitialized.h 
+	uninitialized.h ：
 定义了六个全局函数用与fill或copy大块内存数据。
-	memory.h 
+	memory.h ：
 配置器定义于此文件。
 
 3、迭代器
-	typr_traits.h
+	typr_traits.h：
 用于提取类型信息
-	iterator.h
+	iterator.h：
 定义了迭代器的五种型别，并使用typetraits萃取类型的型别。重载了指针移动及定位符号。
 
 4、序列式容器
-	vector.h
+	vector.h：
 vector采用线性连续空间的数据结构，它以两个迭代器start和finish分别指向配置得来的连续空间中目前已被使用的围，并以迭代器cap_指向整块连续空间(含备用空间)的尾端。支持随机数据访问。vector和array不同，采用和静态空间不同的动态空间，书中所述SGI空间配置策略为空间满载时将空间扩充为二倍甚至更多，但此文件中分配空间大小由get_new_cap（）函数决定。
-	list.h
+	list.h：
 相对于vector的连续线性空间，list就显得复杂许多，它的好处就是插入或删除一个元素，就配置或删除一个元素空间。对于任何位置的元素的插入或删除，list永远是常数时间。此文件实现的是双向链表，由一个迭代器node_指向尾节点，node_ -> next指向头节点。
   
     
