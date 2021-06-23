@@ -89,13 +89,15 @@ set的所有元素都会根据元素的键值自动排序。set的元素不像ma
 此文件还包括了multiset，multiset的特性以及用法和set完全相同，唯一的差别在于它允许键值重复，因此它的插入操作采用的是底层机制RB-tree的insert_multi()而非insert_unique()。
 
 	map.h：
-map的所有元素都会根据元素的键值自动排序。map的所有元素都是pair，同时拥有实值(value)和键值(key)。pair的第一元素为键值，第二元素为实值。map不允许有两个相同的键值。
-　　如果通过map的迭代器改变元素的键值，这样是不行的，因为map元素的键值关系到map元素的排列规则。任意改变map元素
-键值都会破坏map组织。如果修改元素的实值，这是可以的，因为map元素的实值不影响map元素的排列规则。因此，map 
-iterator既不是一种constant iterators，也不是一种mutable iterators。
-	此文件还包括了multimap，multimap的特性以及用法和map完全相同，唯一的差别在于它允许键值重复，因此它的插入操
+map的所有元素都会根据元素的键值自动排序。map的所有元素都是pair，同时拥有实值(value)和键值(key)。pair的第一元素为键值，第二元素为实值。
+map不允许有两个相同的键值。如果通过map的迭代器改变元素的键值，这样是不行的，因为map元素的键值关系到map元素的排列规则。任意改变map元素键值都会破坏map组织。如果修改元素的实值，这是可以的，因为map元素的实值不影响map元素的排列规则。因此，map iterator既不是一种constant iterators，也不是一种mutable iterators。
+此文件还包括了multimap，multimap的特性以及用法和map完全相同，唯一的差别在于它允许键值重复，因此它的插入操
 作采用的是底层机制RB-tree的insert_multi()而非insert_unique()。
 
+	hashtable.h:
+hash table可提供对任何有名项（nameditem)的存取操作和删除操作。由典结构(dictionary).由于操作对象是有名项,所以 hashtable也可被视为一种字这种结构的用意在于提供常数时间之基本操作,就像stack或queue那样。
+其基本原理是：使用一个下标范围比较大的数组来存储元素。把关键字Key通过一个固定的算法函数即所谓的哈希函数（散列函数）转换成一个整型数字，然后就将该数字对数组长度进行取余，取余结果就当作数组的下标，将value存储在以该数字为下标的list空间里。也可以简单的理解为，按照关键字key为每一个元素“分类”，然后将这个元素存储在相应“类”所对应的地方，称为桶。为了避免哈希表太大，需要用到某种映射函数，将大数映射为小数，这种函数称为散列函数hash function。
+但hash function会带来碰撞问题，即不同的元素被映射到相同位置。hashtable用的开链法解决碰撞问题。
 
 
 
